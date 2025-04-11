@@ -1,0 +1,82 @@
+.cursor-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  .star-core {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 8px #64f5ff);
+  }
+  
+  .core-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at center,
+      #64f5ff 0%,
+      #4a80f0 70%,
+      transparent 100%
+    );
+    border-radius: 50%;
+    animation: pulse 1.5s infinite alternate;
+  }
+  
+  .core-sparkle {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    left: -50%;
+    top: -50%;
+    background: radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.8) 0%,
+      transparent 70%
+    );
+    opacity: 0.7;
+  }
+  
+  .particle-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: center;
+    will-change: transform, opacity;
+    transition: 
+      opacity 0.05s linear,
+      transform 0.1s ease-out;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    100% { transform: scale(1.3); opacity: 1; }
+  }
+  
+  /* Physics-based interaction effects */
+  a:hover ~ .cursor-container .star-core,
+  button:hover ~ .cursor-container .star-core {
+    filter: drop-shadow(0 0 15px #ff64b4);
+  }
+  
+  a:hover ~ .cursor-container .core-glow {
+    background: radial-gradient(
+      circle at center,
+      #ff64b4 0%,
+      #f04a4a 70%,
+      transparent 100%
+    );
+  }
+  
+  /* Hide default cursor */

@@ -1,0 +1,21 @@
+/* SphereAnimation.css */
+.sphere-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.4;
+    transform: translate(-50%, -50%);
+    width: 40vw; /* Adjust size as needed */
+    height: 40vw; /* Adjust size as needed */
+    max-width: 300px; /* Limit maximum size */
+    max-height: 300px; /* Limit maximum size */
+    z-index: 1; /* Ensure it's above the text */
+    
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: 100% !important;
+    clip-path: circle(100%);
+    touch-action: none; /* Disable touch interactions on the canvas */
+  }
